@@ -20,5 +20,11 @@ COPY . .
 # Expose the port used by Flask
 EXPOSE 5001
 
+# Ensure entrypoint script is executable
+RUN chmod +x entrypoint.sh
+
+# Use the entrypoint script
+CMD ["sh", "./entrypoint.sh"]
+
 # Start the booking service
-CMD ["flask", "run", "--host=0.0.0.0", "--port=5001"]
+# CMD ["flask", "run", "--host=0.0.0.0", "--port=5001"]
