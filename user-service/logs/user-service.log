@@ -1108,3 +1108,78 @@
 2025-03-07 21:49:56,553 - DEBUG - http://localhost:5001 "POST /book_ticket HTTP/1.1" 201 84
 2025-03-07 21:49:58,942 - DEBUG - http://localhost:5001 "POST /book_ticket HTTP/1.1" 201 86
 2025-03-07 21:50:00,120 - DEBUG - http://localhost:5001 "POST /book_ticket HTTP/1.1" 201 86
+2025-03-14 23:14:51,959 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:14:51,962 - DEBUG - Calling on_field_name with data[0:5]
+2025-03-14 23:14:51,963 - DEBUG - Calling on_field_data with data[6:24]
+2025-03-14 23:14:51,964 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:14:51,964 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:14:51,966 - DEBUG - Calling on_field_name with data[25:33]
+2025-03-14 23:14:51,966 - DEBUG - Calling on_field_data with data[34:39]
+2025-03-14 23:14:51,967 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:14:51,968 - DEBUG - Calling on_end with no data
+2025-03-14 23:14:57,267 - DEBUG - Starting new HTTP connection (1): localhost:5000
+2025-03-14 23:14:57,329 - DEBUG - http://localhost:5000 "GET /api/events HTTP/11" 200 594
+2025-03-14 23:15:08,612 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:15:08,612 - DEBUG - Calling on_field_name with data[0:8]
+2025-03-14 23:15:08,613 - DEBUG - Calling on_field_data with data[9:10]
+2025-03-14 23:15:08,614 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:15:08,615 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:15:08,615 - DEBUG - Calling on_field_name with data[11:18]
+2025-03-14 23:15:08,616 - DEBUG - Calling on_field_data with data[19:20]
+2025-03-14 23:15:08,616 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:15:08,617 - DEBUG - Calling on_end with no data
+2025-03-14 23:15:08,621 - DEBUG - Starting new HTTP connection (1): localhost:5001
+2025-03-14 23:15:12,683 - ERROR - Error booking ticket: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /book_ticket (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000016899057B00>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2025-03-14 23:16:10,493 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:16:10,494 - DEBUG - Calling on_field_name with data[0:8]
+2025-03-14 23:16:10,497 - DEBUG - Calling on_field_data with data[9:10]
+2025-03-14 23:16:10,498 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:16:10,499 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:16:10,501 - DEBUG - Calling on_field_name with data[11:18]
+2025-03-14 23:16:10,501 - DEBUG - Calling on_field_data with data[19:20]
+2025-03-14 23:16:10,502 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:16:10,502 - DEBUG - Calling on_end with no data
+2025-03-14 23:16:10,506 - DEBUG - Starting new HTTP connection (1): localhost:5001
+2025-03-14 23:16:14,553 - ERROR - Error booking ticket: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /book_ticket (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000016899050E60>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2025-03-14 23:17:26,050 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:17:26,051 - DEBUG - Calling on_field_name with data[0:8]
+2025-03-14 23:17:26,052 - DEBUG - Calling on_field_data with data[9:10]
+2025-03-14 23:17:26,053 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:17:26,053 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:17:26,054 - DEBUG - Calling on_field_name with data[11:18]
+2025-03-14 23:17:26,054 - DEBUG - Calling on_field_data with data[19:20]
+2025-03-14 23:17:26,055 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:17:26,055 - DEBUG - Calling on_end with no data
+2025-03-14 23:17:26,138 - DEBUG - Starting new HTTP connection (1): localhost:5001
+2025-03-14 23:17:30,213 - ERROR - Error booking ticket: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /book_ticket (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001DDC1EE5E80>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2025-03-14 23:25:50,825 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:25:50,826 - DEBUG - Calling on_field_name with data[0:5]
+2025-03-14 23:25:50,827 - DEBUG - Calling on_field_data with data[6:24]
+2025-03-14 23:25:50,829 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:25:50,829 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:25:50,830 - DEBUG - Calling on_field_name with data[25:33]
+2025-03-14 23:25:50,834 - DEBUG - Calling on_field_data with data[34:39]
+2025-03-14 23:25:50,836 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:25:50,837 - DEBUG - Calling on_end with no data
+2025-03-14 23:26:00,049 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:26:00,050 - DEBUG - Calling on_field_name with data[0:8]
+2025-03-14 23:26:00,050 - DEBUG - Calling on_field_data with data[9:10]
+2025-03-14 23:26:00,051 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:26:00,051 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:26:00,053 - DEBUG - Calling on_field_name with data[11:18]
+2025-03-14 23:26:00,054 - DEBUG - Calling on_field_data with data[19:20]
+2025-03-14 23:26:00,054 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:26:00,055 - DEBUG - Calling on_end with no data
+2025-03-14 23:26:00,059 - DEBUG - Starting new HTTP connection (1): localhost:5001
+2025-03-14 23:26:04,122 - ERROR - Error booking ticket: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /book_ticket (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001DDC1EE6C90>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2025-03-14 23:37:33,447 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:37:33,448 - DEBUG - Calling on_field_name with data[0:8]
+2025-03-14 23:37:33,448 - DEBUG - Calling on_field_data with data[9:10]
+2025-03-14 23:37:33,449 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:37:33,449 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:37:33,449 - DEBUG - Calling on_field_name with data[11:18]
+2025-03-14 23:37:33,450 - DEBUG - Calling on_field_data with data[19:20]
+2025-03-14 23:37:33,451 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:37:33,451 - DEBUG - Calling on_end with no data
+2025-03-14 23:37:33,454 - DEBUG - Starting new HTTP connection (1): localhost:5001
+2025-03-14 23:37:37,820 - DEBUG - http://localhost:5001 "POST /book_ticket HTTP/10" 201 84

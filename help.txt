@@ -2,7 +2,10 @@ conda activate user-service-env
 conda activate notification-service-env
 ayaan/user-notification-service
 
-user service: uvicorn main:app --reload
+user service: uvicorn main:app --reload --port 8000
+new-event-service: node server.js
+notification-servie: node server.js
+booking-service: flask run --host=0.0.0.0 --port=5001
 
 db.events.find().pretty()
 db.events.deleteMany({})
@@ -11,7 +14,7 @@ db.events.deleteMany({})
 help
 
 PORTS
-user-service : 
+user-service : 8000
 notification-service : 5001
 event-service : 5000
-booking-service 
+booking-service : 5003

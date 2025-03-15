@@ -15,7 +15,6 @@ from models import Base, User
 from auth import hash_password, authenticate_user
 
 
-
 # Create logs directory if it doesn't exist
 if not os.path.exists("logs"):
     os.makedirs("logs")
