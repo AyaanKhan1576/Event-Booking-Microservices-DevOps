@@ -15,7 +15,6 @@ from models import Base, User
 from auth import hash_password, authenticate_user
 
 
-
 # Create logs directory if it doesn't exist
 if not os.path.exists("logs"):
     os.makedirs("logs")
@@ -146,23 +145,7 @@ def raw_events_page(request: Request):
 # EVENTS PAGE
 # ------------------------------
 
-EVENT_SERVICE_URL = "http://localhost:5000/api/events"
-
-# @app.get("/events", response_class=HTMLResponse)
-# def events_page(request: Request):
-#     user = request.session.get("email")
-#     if not user:
-#         return RedirectResponse(url="/", status_code=303)
-
-#     try:
-#         response = requests.get(EVENT_SERVICE_URL, timeout=100)
-#         response.raise_for_status()
-#         events = response.json()
-#     except requests.exceptions.RequestException as e:
-#         logger.error("Error fetching events: %s", e)
-#         events = []
-
-#     return templates.TemplateResponse("events.html", {"request": request, "user": user, "events": events})
+EVENT_SERVICE_URL = "http://event-service:5000/api/events"
 
 @app.get("/events")
 def events_page(request: Request):
@@ -180,37 +163,6 @@ def events_page(request: Request):
 
     return templates.TemplateResponse("events.html", {"request": request, "user": user, "events": events})
 
-# @app.get("/events")
-# def events_page(request: Request):
-#     user = get_current_user(request)
-#     if not user:
-#         return RedirectResponse(url="/", status_code=303)
-    
-#     try:
-#         response = requests.get("http://127.0.0.1:5000/api/events", timeout=100)
-#         response.raise_for_status()
-#         try:
-#             events = response.json()
-#         except Exception as json_err:
-#             logger.error("JSON decoding error: %s", json_err)
-#             events = []
-#         if not isinstance(events, list):
-#             logger.error("Unexpected events format: %s", events)
-#             events = []
-#     except Exception as e:
-#         logger.error("Error fetching events: %s", e)
-#         return templates.TemplateResponse(
-#             "events.html",
-#             {"request": request, "user": user, "events": [], "error": "Failed to load events."}
-#         )
-
-#     logger.info("Fetched events: %s", events)
-#     try:
-#         return templates.TemplateResponse("events.html", {"request": request, "user": user, "events": events})
-#     except Exception as tpl_err:
-#         logger.error("Template rendering error: %s", tpl_err)
-#         raise tpl_err
-
 @app.get("/book")
 def book_ticket_page(request: Request):
     user = get_current_user(request)
@@ -219,7 +171,7 @@ def book_ticket_page(request: Request):
     
     return templates.TemplateResponse("book_ticket.html", {"request": request, "user": user})
 
-BOOKING_SERVICE_URL = "http://localhost:5001/book_ticket"  # Change to actual URL
+BOOKING_SERVICE_URL = "http://booking-service:5001/book_ticket"  # Change to actual URL
 @app.post("/book")
 def book_ticket(
     request: Request,

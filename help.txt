@@ -2,16 +2,124 @@ conda activate user-service-env
 conda activate notification-service-env
 ayaan/user-notification-service
 
-user service: uvicorn main:app --reload
+user service: uvicorn main:app --reload --port 8000
+new-event-service: node server.js
+notification-servie: node server.js
+booking-service: flask run --host=0.0.0.0 --port=5001
 
+psql -U postgres -d bookingdb     
 db.events.find().pretty()
 db.events.deleteMany({})
 
-
-help
-
 PORTS
-user-service : 
-notification-service : 5001
+user-service : 8000
+notification-service : 5003
 event-service : 5000
-booking-service 
+booking-service : 5001
+
+User-service
+	__pychache__
+	Logs
+		user-service.log
+	Routes
+		__pycache__
+		frontend.py
+	Static
+		style.css
+	Templates
+		base.html
+		book_ticket.html
+		dashboard.html
+		events.html
+		home.html
+		login.html
+		register.html
+	.env
+	.env.example
+	.gitignore
+	auth.py
+	.database.py
+	main.py
+	models.py
+	readme.md
+	Requirements.txt
+        Dockerfile
+
+
+
+booking-service
+	__pychache__
+	app
+		__pycache__
+		__init__.py
+		config.py
+		models.py
+		tasks.py
+		utils.py
+		views.py
+	migrations
+	.env
+	.gitignore
+	booking-service.log
+	create_db.py
+	erl_crash.dump
+	readme.md
+	requirements.txt
+	run.py
+        Dockerfile
+
+notification-service
+	node_modules
+	.env
+	.gitignore
+	package-lock.json
+	package.json
+	readme.md
+	server.js
+	test-producer.js
+        Dockerfile
+
+new-event-service
+	config
+		db.js
+	controllers
+		eventController.js
+	models
+		Event.js
+	node_modules
+	routes
+		eventRoutes.js
+        .env
+	.gitignore
+	package-lock.json
+	package.json
+	server.js
+        Dockerfile
+        .dockerignore
+
+
+
+GIT COMMANDS:
+push to git
+        git checkout -b minahil-branch (create your own branch, name yours nabeed-branch or tauha-branch)
+        git fetch origin  
+        git pull origin main  (pull from main so u have the latest changes before pushing in your work)
+        git add . (stage the changes)
+        git commit -m "developed a makeshit ui that shows tasks in the db"  (commit your change. PLEASE add a meaningful commit message)
+        git push origin minahil-branch (push to your branch)
+        go to github -> compare and pull -> creat pull request -> merge pull request -> confirm merge
+
+pulling from git
+        git checkout main (stwitch to main)
+        git fetch origin (to avoid conflicts)
+        git pull origin main
+
+
+DOCKER:
+user-service: http://localhost:8000
+
+
+
+docker run -d -p 5000:5000 --env-file .env --name event-service-container event-service
+docker run -d --name booking-service-container -p 5001:5001 booking-service
+

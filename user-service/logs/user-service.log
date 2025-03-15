@@ -1108,3 +1108,255 @@
 2025-03-07 21:49:56,553 - DEBUG - http://localhost:5001 "POST /book_ticket HTTP/1.1" 201 84
 2025-03-07 21:49:58,942 - DEBUG - http://localhost:5001 "POST /book_ticket HTTP/1.1" 201 86
 2025-03-07 21:50:00,120 - DEBUG - http://localhost:5001 "POST /book_ticket HTTP/1.1" 201 86
+2025-03-14 23:14:51,959 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:14:51,962 - DEBUG - Calling on_field_name with data[0:5]
+2025-03-14 23:14:51,963 - DEBUG - Calling on_field_data with data[6:24]
+2025-03-14 23:14:51,964 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:14:51,964 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:14:51,966 - DEBUG - Calling on_field_name with data[25:33]
+2025-03-14 23:14:51,966 - DEBUG - Calling on_field_data with data[34:39]
+2025-03-14 23:14:51,967 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:14:51,968 - DEBUG - Calling on_end with no data
+2025-03-14 23:14:57,267 - DEBUG - Starting new HTTP connection (1): localhost:5000
+2025-03-14 23:14:57,329 - DEBUG - http://localhost:5000 "GET /api/events HTTP/11" 200 594
+2025-03-14 23:15:08,612 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:15:08,612 - DEBUG - Calling on_field_name with data[0:8]
+2025-03-14 23:15:08,613 - DEBUG - Calling on_field_data with data[9:10]
+2025-03-14 23:15:08,614 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:15:08,615 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:15:08,615 - DEBUG - Calling on_field_name with data[11:18]
+2025-03-14 23:15:08,616 - DEBUG - Calling on_field_data with data[19:20]
+2025-03-14 23:15:08,616 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:15:08,617 - DEBUG - Calling on_end with no data
+2025-03-14 23:15:08,621 - DEBUG - Starting new HTTP connection (1): localhost:5001
+2025-03-14 23:15:12,683 - ERROR - Error booking ticket: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /book_ticket (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000016899057B00>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2025-03-14 23:16:10,493 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:16:10,494 - DEBUG - Calling on_field_name with data[0:8]
+2025-03-14 23:16:10,497 - DEBUG - Calling on_field_data with data[9:10]
+2025-03-14 23:16:10,498 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:16:10,499 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:16:10,501 - DEBUG - Calling on_field_name with data[11:18]
+2025-03-14 23:16:10,501 - DEBUG - Calling on_field_data with data[19:20]
+2025-03-14 23:16:10,502 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:16:10,502 - DEBUG - Calling on_end with no data
+2025-03-14 23:16:10,506 - DEBUG - Starting new HTTP connection (1): localhost:5001
+2025-03-14 23:16:14,553 - ERROR - Error booking ticket: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /book_ticket (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000016899050E60>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2025-03-14 23:17:26,050 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:17:26,051 - DEBUG - Calling on_field_name with data[0:8]
+2025-03-14 23:17:26,052 - DEBUG - Calling on_field_data with data[9:10]
+2025-03-14 23:17:26,053 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:17:26,053 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:17:26,054 - DEBUG - Calling on_field_name with data[11:18]
+2025-03-14 23:17:26,054 - DEBUG - Calling on_field_data with data[19:20]
+2025-03-14 23:17:26,055 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:17:26,055 - DEBUG - Calling on_end with no data
+2025-03-14 23:17:26,138 - DEBUG - Starting new HTTP connection (1): localhost:5001
+2025-03-14 23:17:30,213 - ERROR - Error booking ticket: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /book_ticket (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001DDC1EE5E80>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2025-03-14 23:25:50,825 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:25:50,826 - DEBUG - Calling on_field_name with data[0:5]
+2025-03-14 23:25:50,827 - DEBUG - Calling on_field_data with data[6:24]
+2025-03-14 23:25:50,829 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:25:50,829 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:25:50,830 - DEBUG - Calling on_field_name with data[25:33]
+2025-03-14 23:25:50,834 - DEBUG - Calling on_field_data with data[34:39]
+2025-03-14 23:25:50,836 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:25:50,837 - DEBUG - Calling on_end with no data
+2025-03-14 23:26:00,049 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:26:00,050 - DEBUG - Calling on_field_name with data[0:8]
+2025-03-14 23:26:00,050 - DEBUG - Calling on_field_data with data[9:10]
+2025-03-14 23:26:00,051 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:26:00,051 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:26:00,053 - DEBUG - Calling on_field_name with data[11:18]
+2025-03-14 23:26:00,054 - DEBUG - Calling on_field_data with data[19:20]
+2025-03-14 23:26:00,054 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:26:00,055 - DEBUG - Calling on_end with no data
+2025-03-14 23:26:00,059 - DEBUG - Starting new HTTP connection (1): localhost:5001
+2025-03-14 23:26:04,122 - ERROR - Error booking ticket: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /book_ticket (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001DDC1EE6C90>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2025-03-14 23:37:33,447 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:37:33,448 - DEBUG - Calling on_field_name with data[0:8]
+2025-03-14 23:37:33,448 - DEBUG - Calling on_field_data with data[9:10]
+2025-03-14 23:37:33,449 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:37:33,449 - DEBUG - Calling on_field_start with no data
+2025-03-14 23:37:33,449 - DEBUG - Calling on_field_name with data[11:18]
+2025-03-14 23:37:33,450 - DEBUG - Calling on_field_data with data[19:20]
+2025-03-14 23:37:33,451 - DEBUG - Calling on_field_end with no data
+2025-03-14 23:37:33,451 - DEBUG - Calling on_end with no data
+2025-03-14 23:37:33,454 - DEBUG - Starting new HTTP connection (1): localhost:5001
+2025-03-14 23:37:37,820 - DEBUG - http://localhost:5001 "POST /book_ticket HTTP/10" 201 84
+2025-03-15 21:43:19,305 - DEBUG - Calling on_field_start with no data
+2025-03-15 21:43:19,328 - DEBUG - Calling on_field_name with data[0:5]
+2025-03-15 21:43:19,342 - DEBUG - Calling on_field_data with data[6:24]
+2025-03-15 21:43:19,345 - DEBUG - Calling on_field_end with no data
+2025-03-15 21:43:19,347 - DEBUG - Calling on_field_start with no data
+2025-03-15 21:43:19,348 - DEBUG - Calling on_field_name with data[25:33]
+2025-03-15 21:43:19,348 - DEBUG - Calling on_field_data with data[34:39]
+2025-03-15 21:43:19,357 - DEBUG - Calling on_field_end with no data
+2025-03-15 21:43:19,359 - DEBUG - Calling on_end with no data
+2025-03-15 21:44:04,485 - DEBUG - Calling on_field_start with no data
+2025-03-15 21:44:04,487 - DEBUG - Calling on_field_name with data[0:4]
+2025-03-15 21:44:04,502 - DEBUG - Calling on_field_data with data[5:10]
+2025-03-15 21:44:04,529 - DEBUG - Calling on_field_end with no data
+2025-03-15 21:44:04,561 - DEBUG - Calling on_field_start with no data
+2025-03-15 21:44:04,592 - DEBUG - Calling on_field_name with data[11:16]
+2025-03-15 21:44:04,611 - DEBUG - Calling on_field_data with data[17:34]
+2025-03-15 21:44:04,660 - DEBUG - Calling on_field_end with no data
+2025-03-15 21:44:04,666 - DEBUG - Calling on_field_start with no data
+2025-03-15 21:44:04,702 - DEBUG - Calling on_field_name with data[35:43]
+2025-03-15 21:44:04,730 - DEBUG - Calling on_field_data with data[44:49]
+2025-03-15 21:44:04,734 - DEBUG - Calling on_field_end with no data
+2025-03-15 21:44:04,735 - DEBUG - Calling on_end with no data
+2025-03-15 21:44:15,903 - DEBUG - Calling on_field_start with no data
+2025-03-15 21:44:15,907 - DEBUG - Calling on_field_name with data[0:5]
+2025-03-15 21:44:15,909 - DEBUG - Calling on_field_data with data[6:23]
+2025-03-15 21:44:15,915 - DEBUG - Calling on_field_end with no data
+2025-03-15 21:44:15,916 - DEBUG - Calling on_field_start with no data
+2025-03-15 21:44:15,917 - DEBUG - Calling on_field_name with data[24:32]
+2025-03-15 21:44:15,923 - DEBUG - Calling on_field_data with data[33:38]
+2025-03-15 21:44:15,925 - DEBUG - Calling on_field_end with no data
+2025-03-15 21:44:15,931 - DEBUG - Calling on_end with no data
+2025-03-15 21:44:21,572 - DEBUG - Starting new HTTP connection (1): localhost:5000
+2025-03-15 21:44:21,668 - DEBUG - Starting new HTTP connection (1): localhost:5000
+2025-03-15 21:44:21,715 - ERROR - Error fetching events: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/events (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3cd12bafc0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 21:44:21,719 - ERROR - Error fetching events: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/events (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3cd02bc410>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 21:44:35,616 - DEBUG - Calling on_field_start with no data
+2025-03-15 21:44:35,627 - DEBUG - Calling on_field_name with data[0:8]
+2025-03-15 21:44:35,628 - DEBUG - Calling on_field_data with data[9:10]
+2025-03-15 21:44:35,631 - DEBUG - Calling on_field_end with no data
+2025-03-15 21:44:35,632 - DEBUG - Calling on_field_start with no data
+2025-03-15 21:44:35,633 - DEBUG - Calling on_field_name with data[11:18]
+2025-03-15 21:44:35,635 - DEBUG - Calling on_field_data with data[19:20]
+2025-03-15 21:44:35,640 - DEBUG - Calling on_field_end with no data
+2025-03-15 21:44:35,644 - DEBUG - Calling on_end with no data
+2025-03-15 21:44:35,661 - DEBUG - Starting new HTTP connection (1): localhost:5001
+2025-03-15 21:44:35,665 - ERROR - Error booking ticket: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /book_ticket (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3cd02bd310>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 21:44:43,884 - DEBUG - Starting new HTTP connection (1): localhost:5000
+2025-03-15 21:44:43,897 - ERROR - Error fetching events: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/events (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3cd0293050>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 21:51:45,028 - DEBUG - Starting new HTTP connection (1): localhost:5000
+2025-03-15 21:51:45,042 - ERROR - Error fetching events: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/events (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3cd0293920>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 21:51:48,502 - DEBUG - Starting new HTTP connection (1): localhost:5000
+2025-03-15 21:51:48,504 - ERROR - Error fetching events: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/events (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3cd02be5a0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 21:51:59,282 - DEBUG - Starting new HTTP connection (1): localhost:5000
+2025-03-15 21:51:59,295 - ERROR - Error fetching events: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/events (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3cd02bdbb0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 21:52:30,726 - DEBUG - Calling on_field_start with no data
+2025-03-15 21:52:30,733 - DEBUG - Calling on_field_name with data[0:5]
+2025-03-15 21:52:30,740 - DEBUG - Calling on_field_data with data[6:23]
+2025-03-15 21:52:30,743 - DEBUG - Calling on_field_end with no data
+2025-03-15 21:52:30,746 - DEBUG - Calling on_field_start with no data
+2025-03-15 21:52:30,748 - DEBUG - Calling on_field_name with data[24:32]
+2025-03-15 21:52:30,749 - DEBUG - Calling on_field_data with data[33:38]
+2025-03-15 21:52:30,750 - DEBUG - Calling on_field_end with no data
+2025-03-15 21:52:30,757 - DEBUG - Calling on_end with no data
+2025-03-15 21:52:35,655 - DEBUG - Starting new HTTP connection (1): localhost:5000
+2025-03-15 21:52:35,667 - ERROR - Error fetching events: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/events (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3cd0293650>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 21:55:15,120 - DEBUG - Calling on_field_start with no data
+2025-03-15 21:55:15,122 - DEBUG - Calling on_field_name with data[0:5]
+2025-03-15 21:55:15,125 - DEBUG - Calling on_field_data with data[6:23]
+2025-03-15 21:55:15,127 - DEBUG - Calling on_field_end with no data
+2025-03-15 21:55:15,129 - DEBUG - Calling on_field_start with no data
+2025-03-15 21:55:15,131 - DEBUG - Calling on_field_name with data[24:32]
+2025-03-15 21:55:15,135 - DEBUG - Calling on_field_data with data[33:38]
+2025-03-15 21:55:15,147 - DEBUG - Calling on_field_end with no data
+2025-03-15 21:55:15,175 - DEBUG - Calling on_end with no data
+2025-03-15 21:55:20,180 - DEBUG - Starting new HTTP connection (1): localhost:5000
+2025-03-15 21:55:20,202 - ERROR - Error fetching events: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/events (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3cd02bf9e0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 21:56:42,873 - DEBUG - Starting new HTTP connection (1): localhost:5000
+2025-03-15 21:56:42,875 - ERROR - Error fetching events: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/events (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f3cd02bc1d0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 22:01:53,186 - DEBUG - Starting new HTTP connection (1): event-service:5000
+2025-03-15 22:01:53,196 - ERROR - Error fetching events: HTTPConnectionPool(host='event-service', port=5000): Max retries exceeded with url: /api/events (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fbe61ddf5c0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 22:03:42,131 - DEBUG - Starting new HTTP connection (1): event-service:5000
+2025-03-15 22:03:42,845 - DEBUG - http://event-service:5000 "GET /api/events HTTP/1.1" 200 594
+2025-03-15 22:29:28,547 - DEBUG - Calling on_field_start with no data
+2025-03-15 22:29:28,646 - DEBUG - Calling on_field_name with data[0:5]
+2025-03-15 22:29:28,679 - DEBUG - Calling on_field_data with data[6:23]
+2025-03-15 22:29:28,732 - DEBUG - Calling on_field_end with no data
+2025-03-15 22:29:28,758 - DEBUG - Calling on_field_start with no data
+2025-03-15 22:29:28,773 - DEBUG - Calling on_field_name with data[24:32]
+2025-03-15 22:29:28,791 - DEBUG - Calling on_field_data with data[33:38]
+2025-03-15 22:29:28,799 - DEBUG - Calling on_field_end with no data
+2025-03-15 22:29:28,811 - DEBUG - Calling on_end with no data
+2025-03-15 22:29:47,506 - DEBUG - Calling on_field_start with no data
+2025-03-15 22:29:47,524 - DEBUG - Calling on_field_name with data[0:4]
+2025-03-15 22:29:47,542 - DEBUG - Calling on_field_data with data[5:10]
+2025-03-15 22:29:47,550 - DEBUG - Calling on_field_end with no data
+2025-03-15 22:29:47,560 - DEBUG - Calling on_field_start with no data
+2025-03-15 22:29:47,569 - DEBUG - Calling on_field_name with data[11:16]
+2025-03-15 22:29:47,581 - DEBUG - Calling on_field_data with data[17:34]
+2025-03-15 22:29:47,626 - DEBUG - Calling on_field_end with no data
+2025-03-15 22:29:47,655 - DEBUG - Calling on_field_start with no data
+2025-03-15 22:29:47,683 - DEBUG - Calling on_field_name with data[35:43]
+2025-03-15 22:29:47,686 - DEBUG - Calling on_field_data with data[44:49]
+2025-03-15 22:29:47,695 - DEBUG - Calling on_field_end with no data
+2025-03-15 22:29:47,719 - DEBUG - Calling on_end with no data
+2025-03-15 22:29:57,661 - DEBUG - Calling on_field_start with no data
+2025-03-15 22:29:57,662 - DEBUG - Calling on_field_name with data[0:5]
+2025-03-15 22:29:57,663 - DEBUG - Calling on_field_data with data[6:23]
+2025-03-15 22:29:57,682 - DEBUG - Calling on_field_end with no data
+2025-03-15 22:29:57,710 - DEBUG - Calling on_field_start with no data
+2025-03-15 22:29:57,717 - DEBUG - Calling on_field_name with data[24:32]
+2025-03-15 22:29:57,722 - DEBUG - Calling on_field_data with data[33:38]
+2025-03-15 22:29:57,737 - DEBUG - Calling on_field_end with no data
+2025-03-15 22:29:57,754 - DEBUG - Calling on_end with no data
+2025-03-15 22:30:03,604 - DEBUG - Starting new HTTP connection (1): event-service:5000
+2025-03-15 22:30:03,648 - ERROR - Error fetching events: HTTPConnectionPool(host='event-service', port=5000): Max retries exceeded with url: /api/events (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f26bc085fa0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 22:30:07,364 - DEBUG - Starting new HTTP connection (1): event-service:5000
+2025-03-15 22:30:07,418 - ERROR - Error fetching events: HTTPConnectionPool(host='event-service', port=5000): Max retries exceeded with url: /api/events (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f26bc0861b0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-15 22:31:08,442 - DEBUG - Starting new HTTP connection (1): event-service:5000
+2025-03-15 22:31:08,961 - DEBUG - http://event-service:5000 "GET /api/events HTTP/1.1" 200 594
+2025-03-15 22:31:24,083 - DEBUG - Calling on_field_start with no data
+2025-03-15 22:31:24,085 - DEBUG - Calling on_field_name with data[0:5]
+2025-03-15 22:31:24,085 - DEBUG - Calling on_field_data with data[6:23]
+2025-03-15 22:31:24,089 - DEBUG - Calling on_field_end with no data
+2025-03-15 22:31:24,095 - DEBUG - Calling on_field_start with no data
+2025-03-15 22:31:24,101 - DEBUG - Calling on_field_name with data[24:32]
+2025-03-15 22:31:24,130 - DEBUG - Calling on_field_data with data[33:38]
+2025-03-15 22:31:24,149 - DEBUG - Calling on_field_end with no data
+2025-03-15 22:31:24,167 - DEBUG - Calling on_end with no data
+2025-03-15 22:31:28,956 - DEBUG - Starting new HTTP connection (1): event-service:5000
+2025-03-15 22:31:28,997 - DEBUG - http://event-service:5000 "GET /api/events HTTP/1.1" 200 594
+2025-03-15 22:31:42,609 - DEBUG - Calling on_field_start with no data
+2025-03-15 22:31:42,661 - DEBUG - Calling on_field_name with data[0:8]
+2025-03-15 22:31:42,669 - DEBUG - Calling on_field_data with data[9:10]
+2025-03-15 22:31:42,685 - DEBUG - Calling on_field_end with no data
+2025-03-15 22:31:42,717 - DEBUG - Calling on_field_start with no data
+2025-03-15 22:31:42,752 - DEBUG - Calling on_field_name with data[11:18]
+2025-03-15 22:31:42,786 - DEBUG - Calling on_field_data with data[19:20]
+2025-03-15 22:31:42,803 - DEBUG - Calling on_field_end with no data
+2025-03-15 22:31:42,818 - DEBUG - Calling on_end with no data
+2025-03-15 22:31:42,837 - DEBUG - Starting new HTTP connection (1): booking-service:5001
+2025-03-15 22:31:44,292 - DEBUG - http://booking-service:5001 "POST /book_ticket HTTP/1.1" 500 548
+2025-03-15 22:31:44,318 - ERROR - Error booking ticket: 500 Server Error: INTERNAL SERVER ERROR for url: http://booking-service:5001/book_ticket
+2025-03-15 22:53:14,785 - DEBUG - Calling on_field_start with no data
+2025-03-15 22:53:14,895 - DEBUG - Calling on_field_name with data[0:8]
+2025-03-15 22:53:14,909 - DEBUG - Calling on_field_data with data[9:10]
+2025-03-15 22:53:14,944 - DEBUG - Calling on_field_end with no data
+2025-03-15 22:53:14,950 - DEBUG - Calling on_field_start with no data
+2025-03-15 22:53:14,968 - DEBUG - Calling on_field_name with data[11:18]
+2025-03-15 22:53:15,000 - DEBUG - Calling on_field_data with data[19:20]
+2025-03-15 22:53:15,014 - DEBUG - Calling on_field_end with no data
+2025-03-15 22:53:15,033 - DEBUG - Calling on_end with no data
+2025-03-15 22:53:15,396 - DEBUG - Starting new HTTP connection (1): booking-service:5001
+2025-03-15 22:53:19,790 - ERROR - Error booking ticket: HTTPConnectionPool(host='booking-service', port=5001): Max retries exceeded with url: /book_ticket (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f051a3ae030>: Failed to resolve 'booking-service' ([Errno -2] Name or service not known)"))
+2025-03-15 22:53:26,791 - DEBUG - Calling on_field_start with no data
+2025-03-15 22:53:26,826 - DEBUG - Calling on_field_name with data[0:8]
+2025-03-15 22:53:26,858 - DEBUG - Calling on_field_data with data[9:10]
+2025-03-15 22:53:26,874 - DEBUG - Calling on_field_end with no data
+2025-03-15 22:53:26,890 - DEBUG - Calling on_field_start with no data
+2025-03-15 22:53:26,922 - DEBUG - Calling on_field_name with data[11:18]
+2025-03-15 22:53:26,940 - DEBUG - Calling on_field_data with data[19:20]
+2025-03-15 22:53:26,955 - DEBUG - Calling on_field_end with no data
+2025-03-15 22:53:26,978 - DEBUG - Calling on_end with no data
+2025-03-15 22:53:27,006 - DEBUG - Starting new HTTP connection (1): booking-service:5001
+2025-03-15 22:53:30,432 - ERROR - Error booking ticket: HTTPConnectionPool(host='booking-service', port=5001): Max retries exceeded with url: /book_ticket (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f0519e9c9e0>: Failed to resolve 'booking-service' ([Errno -2] Name or service not known)"))
+2025-03-15 22:53:34,980 - DEBUG - Starting new HTTP connection (1): event-service:5000
+2025-03-15 22:53:37,672 - DEBUG - http://event-service:5000 "GET /api/events HTTP/1.1" 200 594
+2025-03-15 22:54:35,816 - DEBUG - Calling on_field_start with no data
+2025-03-15 22:54:35,827 - DEBUG - Calling on_field_name with data[0:8]
+2025-03-15 22:54:35,839 - DEBUG - Calling on_field_data with data[9:10]
+2025-03-15 22:54:35,843 - DEBUG - Calling on_field_end with no data
+2025-03-15 22:54:35,853 - DEBUG - Calling on_field_start with no data
+2025-03-15 22:54:35,868 - DEBUG - Calling on_field_name with data[11:18]
+2025-03-15 22:54:35,879 - DEBUG - Calling on_field_data with data[19:20]
+2025-03-15 22:54:35,935 - DEBUG - Calling on_field_end with no data
+2025-03-15 22:54:35,945 - DEBUG - Calling on_end with no data
+2025-03-15 22:54:35,953 - DEBUG - Starting new HTTP connection (1): booking-service:5001
+2025-03-15 22:54:39,877 - ERROR - Error booking ticket: HTTPConnectionPool(host='booking-service', port=5001): Max retries exceeded with url: /book_ticket (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f0519e9e540>: Failed to resolve 'booking-service' ([Errno -2] Name or service not known)"))
