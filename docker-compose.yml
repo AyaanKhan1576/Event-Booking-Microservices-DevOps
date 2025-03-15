@@ -1,0 +1,124 @@
+services:
+  # User Service
+  user-service:
+    build:
+      context: ./user-service
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:minahil.ali117@postgres:5432/user_service_db
+      - SECRET_KEY=123456789
+      - ENV_FILE=/app/.env
+    # depends_on:
+    #   - postgres
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - app-network
+    volumes:
+      - ./user-service:/app
+
+  # Booking Service
+  booking-service:
+    build:
+      context: ./booking-service
+    ports:
+      - "5001:5001"
+    environment:
+      - DATABASE_URL=postgresql://postgres:minahil.ali117@postgres:5432/bookingdb
+      - CELERY_BROKER_URL=pyamqp://guest:guest@rabbitmq//
+      - SECRET_KEY=123456798
+      - ENV_FILE=/app/.env
+    # depends_on:
+    #   - postgres
+    #   - rabbitmq
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - app-network
+    volumes:
+      - ./booking-service:/app
+
+  # Notification Service
+  notification-service:
+    build:
+      context: ./notification-service
+    ports:
+      - "5003:5003"
+    environment:
+      - PORT=5003
+      - MONGO_URI=mongodb://mongo:27017/notifications
+      - RABBITMQ_URL=amqp://rabbitmq
+    depends_on:
+      - mongo
+      - rabbitmq
+    networks:
+      - app-network
+    volumes:
+      - ./notification-service:/app
+
+  # Event Service
+  event-service:
+    build:
+      context: ./new-event-service
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE_URL=mongodb://mongo:27017/eventdb
+      - ENV_FILE=/app/.env
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+    volumes:
+      - ./new-event-service:/app
+
+  # PostgreSQL Database for User Service and Booking Service
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: minahil.ali117
+      POSTGRES_DB: user_service_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # Ensure bookingdb is created
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # MongoDB Database for Booking and Event Services
+  mongo:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_DATABASE: eventdb
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - app-network
+
+  # RabbitMQ (for Celery Broker)
+  rabbitmq:
+    image: rabbitmq:management
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - app-network
+
+volumes:
+  postgres_data:
+  mongo_data:
+
+networks:
+  app-network:
+    driver: bridge

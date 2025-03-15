@@ -11,8 +11,8 @@ from flask import request, jsonify
 from app.models import TicketBooking
 from app.tasks import process_payment  # Async task for RabbitMQ
 
-EVENT_SERVICE_URL = "http://localhost:5000/api/events"
-PAYMENT_GATEWAY_URL = "http://localhost:5001/payments"  # Mock Payment Service URL
+EVENT_SERVICE_URL = "http://event-service:5000/api/events"
+PAYMENT_GATEWAY_URL = "http://booking-service:5001/payments"  # Mock Payment Service URL
 
 @app.route('/book_ticket', methods=['POST'])
 def book_ticket_flask():
@@ -27,7 +27,7 @@ def book_ticket_flask():
 
     try:
         # Step 1: Check event availability from Event Service
-        event_url = f"http://localhost:5000/api/events/{event_id}/availability"
+        event_url = f"http://event-service:5000/api/events/{event_id}/availability"
         event_response = requests.get(event_url)
 
         if event_response.status_code != 200:

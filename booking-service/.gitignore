@@ -17,11 +17,6 @@ venv/
 # Dependency directories
 node_modules/
 
-# Docker-related files
-Dockerfile
-
-# Python dependencies file
-requirements.txt
 
 # IDE-related files (VS Code example)
 .vscode/
