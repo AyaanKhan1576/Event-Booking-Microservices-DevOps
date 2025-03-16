@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: booking-service
+  namespace: microservices-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: booking-service
+  template:
+    metadata:
+      labels:
+        app: booking-service
+    spec:
+      containers:
+        - name: booking-service
+          image: cs4067-assignment-02-22i-0849-minahil_ali-booking-service:latest
+          ports:
+            - containerPort: 5001
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: microservices-config
+                  key: DATABASE_URL_BOOKING
+            - name: CELERY_BROKER_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: microservices-config
+                  key: CELERY_BROKER_URL
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: microservices-secrets
+                  key: SECRET_KEY_BOOKING

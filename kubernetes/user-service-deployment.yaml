@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service
+  namespace: microservices-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-service
+  template:
+    metadata:
+      labels:
+        app: user-service
+    spec:
+      containers:
+        - name: user-service
+          image: cs4067-assignment-02-22i-0849-minahil_ali-user-service:latest
+          ports:
+            - containerPort: 8000
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: microservices-config
+                  key: DATABASE_URL_USER
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: microservices-secrets
+                  key: SECRET_KEY_USER

@@ -120,6 +120,8 @@ user-service: http://localhost:8000
 
 
 
-docker run -d -p 5000:5000 --env-file .env --name event-service-container event-service
-docker run -d --name booking-service-container -p 5001:5001 booking-service
+to reclaim space:
+docker system prune -a -f
 
+
+kubectl port-forward svc/user-service 8000:8000 -n microservices-namespace
