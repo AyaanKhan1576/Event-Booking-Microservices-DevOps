@@ -1,0 +1,54 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: microservices-ingress
+  namespace: microservices-namespace
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false" # Change to "true" if using TLS
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: localhost  # Replace with your domain if needed
+      http:
+        paths:
+          # Route frontend requests to user-service
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: user-service
+                port:
+                  number: 8000
+
+          # Route event API calls to event-service
+          - path: /api/events
+            pathType: Prefix
+            backend:
+              service:
+                name: event-service
+                port:
+                  number: 5000
+
+          # Route booking-related calls to booking-service
+          - path: /book_ticket
+            pathType: Prefix
+            backend:
+              service:
+                name: booking-service
+                port:
+                  number: 5001
+
+          - path: /payments
+            pathType: Prefix
+            backend:
+              service:
+                name: booking-service
+                port:
+                  number: 5001
+
+  # TLS config (optional)
+  # tls:
+  #   - hosts:
+  #       - your-domain.com
+  #     secretName: tls-secret  # You need to create this secret using cert-manager
