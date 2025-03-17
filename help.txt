@@ -43,7 +43,7 @@ User-service
 	models.py
 	readme.md
 	Requirements.txt
-        Dockerfile
+    Dockerfile
 
 
 
@@ -66,7 +66,7 @@ booking-service
 	readme.md
 	requirements.txt
 	run.py
-        Dockerfile
+    Dockerfile
 
 notification-service
 	node_modules
@@ -77,7 +77,7 @@ notification-service
 	readme.md
 	server.js
 	test-producer.js
-        Dockerfile
+    Dockerfile
 
 new-event-service
 	config
@@ -94,8 +94,24 @@ new-event-service
 	package-lock.json
 	package.json
 	server.js
-        Dockerfile
-        .dockerignore
+    Dockerfile
+    .dockerignore
+
+kubernetes
+	booking-service-deployment.yaml
+	notification-service-deployment.yaml
+	event-service-deployment.yaml
+	user-service-deployment.yaml
+	mongo-deployment.yaml
+	namespace.yaml
+	postgres-deployment.yaml
+	rabbitmq-deployment.yaml
+	volumes.yaml
+	services.yaml
+	secret.yaml
+	configmap.yaml
+
+docker-compose.yml
 
 
 

@@ -1620,3 +1620,51 @@
 2025-03-16 18:49:21,739 - DEBUG - Calling on_end with no data
 2025-03-16 18:49:21,749 - DEBUG - Starting new HTTP connection (1): booking-service:5001
 2025-03-16 18:49:22,092 - DEBUG - http://booking-service:5001 "POST /book_ticket HTTP/1.1" 201 85
+2025-03-17 12:08:24,895 - DEBUG - Calling on_field_start with no data
+2025-03-17 12:08:24,899 - DEBUG - Calling on_field_name with data[0:5]
+2025-03-17 12:08:24,899 - DEBUG - Calling on_field_data with data[6:23]
+2025-03-17 12:08:24,900 - DEBUG - Calling on_field_end with no data
+2025-03-17 12:08:24,901 - DEBUG - Calling on_field_start with no data
+2025-03-17 12:08:24,905 - DEBUG - Calling on_field_name with data[24:32]
+2025-03-17 12:08:24,911 - DEBUG - Calling on_field_data with data[33:39]
+2025-03-17 12:08:24,912 - DEBUG - Calling on_field_end with no data
+2025-03-17 12:08:24,913 - DEBUG - Calling on_end with no data
+2025-03-17 12:08:35,787 - DEBUG - Calling on_field_start with no data
+2025-03-17 12:08:35,798 - DEBUG - Calling on_field_name with data[0:4]
+2025-03-17 12:08:35,819 - DEBUG - Calling on_field_data with data[5:10]
+2025-03-17 12:08:35,823 - DEBUG - Calling on_field_end with no data
+2025-03-17 12:08:35,836 - DEBUG - Calling on_field_start with no data
+2025-03-17 12:08:35,841 - DEBUG - Calling on_field_name with data[11:16]
+2025-03-17 12:08:35,851 - DEBUG - Calling on_field_data with data[17:34]
+2025-03-17 12:08:35,876 - DEBUG - Calling on_field_end with no data
+2025-03-17 12:08:35,877 - DEBUG - Calling on_field_start with no data
+2025-03-17 12:08:35,881 - DEBUG - Calling on_field_name with data[35:43]
+2025-03-17 12:08:35,883 - DEBUG - Calling on_field_data with data[44:49]
+2025-03-17 12:08:35,883 - DEBUG - Calling on_field_end with no data
+2025-03-17 12:08:35,885 - DEBUG - Calling on_end with no data
+2025-03-17 12:08:44,728 - DEBUG - Calling on_field_start with no data
+2025-03-17 12:08:44,746 - DEBUG - Calling on_field_name with data[0:5]
+2025-03-17 12:08:44,774 - DEBUG - Calling on_field_data with data[6:23]
+2025-03-17 12:08:44,777 - DEBUG - Calling on_field_end with no data
+2025-03-17 12:08:44,785 - DEBUG - Calling on_field_start with no data
+2025-03-17 12:08:44,789 - DEBUG - Calling on_field_name with data[24:32]
+2025-03-17 12:08:44,795 - DEBUG - Calling on_field_data with data[33:38]
+2025-03-17 12:08:44,806 - DEBUG - Calling on_field_end with no data
+2025-03-17 12:08:44,809 - DEBUG - Calling on_end with no data
+2025-03-17 12:08:49,382 - DEBUG - Starting new HTTP connection (1): event-service:5000
+2025-03-17 12:08:49,418 - ERROR - Error fetching events: HTTPConnectionPool(host='event-service', port=5000): Max retries exceeded with url: /api/events (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9f85d9eb40>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-17 12:08:53,520 - DEBUG - Starting new HTTP connection (1): event-service:5000
+2025-03-17 12:08:53,533 - ERROR - Error fetching events: HTTPConnectionPool(host='event-service', port=5000): Max retries exceeded with url: /api/events (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9f83b0b2c0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+2025-03-17 12:09:02,579 - DEBUG - Starting new HTTP connection (1): event-service:5000
+2025-03-17 12:09:02,856 - DEBUG - http://event-service:5000 "GET /api/events HTTP/1.1" 200 594
+2025-03-17 12:09:11,173 - DEBUG - Calling on_field_start with no data
+2025-03-17 12:09:11,201 - DEBUG - Calling on_field_name with data[0:8]
+2025-03-17 12:09:11,205 - DEBUG - Calling on_field_data with data[9:10]
+2025-03-17 12:09:11,207 - DEBUG - Calling on_field_end with no data
+2025-03-17 12:09:11,216 - DEBUG - Calling on_field_start with no data
+2025-03-17 12:09:11,222 - DEBUG - Calling on_field_name with data[11:18]
+2025-03-17 12:09:11,225 - DEBUG - Calling on_field_data with data[19:20]
+2025-03-17 12:09:11,226 - DEBUG - Calling on_field_end with no data
+2025-03-17 12:09:11,227 - DEBUG - Calling on_end with no data
+2025-03-17 12:09:11,255 - DEBUG - Starting new HTTP connection (1): booking-service:5001
+2025-03-17 12:09:11,601 - DEBUG - http://booking-service:5001 "POST /book_ticket HTTP/1.1" 201 83
