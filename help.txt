@@ -139,5 +139,8 @@ user-service: http://localhost:8000
 to reclaim space:
 docker system prune -a -f
 
+kubectl get pods -n microservices-namespace
+kubectl get services -n microservices-namespace
+kubectl describe ingress microservices-ingress -n microservices-namespace
 
 kubectl port-forward svc/user-service 8000:8000 -n microservices-namespace
