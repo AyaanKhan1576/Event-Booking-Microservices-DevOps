@@ -1,138 +1,212 @@
 # CS4067 Event Booking Microservices
 
-## Contributors
-- **Ayaan Khan (22i-0832)**
-- **Minahil Ali (22i-0849)**
+### Contributors
+- Ayaan Khan (22i-0832)
+- Minahil Ali (22i-0849)
 
 ## Overview
-This repository contains the code for an Event Booking application built using a microservices architecture. The project is divided into the following services:
-- **User Service:** Handles user authentication and profiles.
-- **Event Service:** Manages event listings.
-- **Booking Service:** Manages ticket bookings, payment processing, and booking status.
-- **Notification Service:** Sends out confirmation notifications via email/SMS.
+This repository contains the code for an Event Booking Platform built using a microservices architecture. The system allows users to register, view events, book tickets, and receive booking confirmations via notifications.
 
-## Repository Structure
-- **user-service/**: Code for user authentication and profile management.
-- **event-service/**: Code for event listing and management.
-- **booking-service/**: Code for processing bookings and integrating with RabbitMQ.
-- **notification-service/**: Code for handling notifications.
+### Microservices Breakdown
+- **User Service**: Manages user authentication and profiles.
+- **Event Service**: Handles event listings and event data.
+- **Booking Service**: Processes ticket bookings and manages bookings.
+- **Notification Service**: Sends email/SMS notifications to users after booking confirmation.
 
-## Architecture
+### Tech Stack
 
-### Microservices and Technologies:
-1. **User Service** (FastAPI, PostgreSQL, REST API)  
-   - Handles user authentication (registration, login, credential verification).
-   - Communicates with the Booking Service and Event Service via REST API.
+| Component          | Technology Used                      |
+|--------------------|--------------------------------------|
+| **Frontend (Templates)** | HTML, CSS (Jinja2 via FastAPI)   |
+| **User Service**   | FastAPI, PostgreSQL, SQLAlchemy      |
+| **Event Service**  | Node.js (Express), MongoDB, Mongoose|
+| **Booking Service**| Flask, PostgreSQL, Celery           |
+| **Notification Service** | Node.js (Express), MongoDB |
+| **Containerization** | Docker                            |
+| **Orchestration**  | Kubernetes                          |
 
-2. **Event Service** (Node.js, MongoDB, REST API)  
-   - Provides event details.
-   - Interacts with the Booking Service for event availability.
+## Folder Structure
 
-3. **Booking Service** (Flask, PostgreSQL, REST API, RabbitMQ)  
-   - Handles event booking and payment processing.
-   - Publishes booking confirmation events asynchronously via RabbitMQ.
+├── user-service
+│ ├── Routes/
+│ ├── Static/
+│ ├── Templates/
+│ ├── auth.py
+│ ├── database.py
+│ ├── models.py
+│ ├── main.py
+│ ├── Dockerfile
+│ └── ...
+│
+├── booking-service
+│ ├── app/
+│ ├── migrations/
+│ ├── create_db.py
+│ ├── run.py
+│ ├── Dockerfile
+│ └── ...
+│
+├── notification-service
+│ ├── server.js
+│ ├── test-producer.js
+│ ├── Dockerfile
+│ └── ...
+│
+├── new-event-service
+│ ├── config/
+│ ├── controllers/
+│ ├── models/
+│ ├── routes/
+│ ├── server.js
+│ ├── Dockerfile
+│ └── ...
+│
+├── kubernetes/
+│ ├── user-service-deployment.yaml
+│ ├── event-service-deployment.yaml
+│ ├── booking-service-deployment.yaml
+│ ├── notification-service-deployment.yaml
+│ ├── mongo-deployment.yaml
+│ ├── postgres-deployment.yaml
+│ ├── volumes.yaml
+│ ├── configmap.yaml
+│ ├── secret.yaml
+│ ├── namespace.yaml
+│ └── services.yaml
+│
+└── docker-compose.yml
 
-4. **Notification Service** (Express.js, MongoDB, RabbitMQ)  
-   - Listens for booking confirmation messages via RabbitMQ.
-   - Sends notifications to users.
 
-### Communication Flow:
-- **User Service** interacts with **Booking Service** and **Event Service** via REST API.
-- **Booking Service** processes payments and publishes booking confirmations via **RabbitMQ**.
-- **Notification Service** listens for booking events in **RabbitMQ** and sends notifications.
+## Communication Flow
 
-## API Documentation
+- **User (Frontend)** communicates with the **User Service** and **Event Service / Booking Service**.
+- **User Service** handles user registration and authentication.
+- **Booking Service** processes ticket bookings.
+- **Notification Service** sends notifications via email/SMS upon booking confirmation.
+  
+REST APIs are used between the **user**, **event**, and **booking** services for communication.
 
-### User Service (REST API)
-#### Authentication Endpoints
-- **POST /register** – Create a new user account.
-- **POST /login** – Authenticate a user and return a token.
-- **GET /users/{user_id}** – Retrieve user details.
-- **GET /events - Retrieve evevbt details
+## API Endpoints
 
-### Event Service (REST API)
-#### Event Endpoints
-- **GET /events** – Retrieve all events.
-- **GET /events/{event_id}** – Retrieve a specific event.
+- **User Service (FastAPI)**
+  - `POST /register`: Register a new user.
+  - `POST /login`: Login with credentials.
+  - `GET /users/{user_id}`: Get user info.
+  - `GET /events`: Retrieve event listings.
 
-### Booking Service (RabbitMQ and REST API)
-#### Booking Endpoints
-- **POST /book** – Book an event and process payment.
-- **GET /bookings/{user_id}** – Retrieve user’s booking history.
+- **Event Service (Node.js)**
+  - `GET /events`: List all events.
+  - `GET /events/{event_id}`: Event details.
 
-### Notification Service (REST API)
-#### Notification Endpoints
-- **GET /notifications/{user_id}** – Retrieve user notifications.
+- **Booking Service (Flask)**
+  - `POST /book`: Book an event.
+  - `GET /bookings/{user_id}`: View user’s bookings.
 
-## Setup Guide
+- **Notification Service (Express.js)**
+  - `GET /notifications/{user_id}`: View notifications.
 
-### 1. Clone the Repository
-```sh
-$ git clone <repo-url>
-$ cd event-booking-system
-```
+## Setup Instructions
 
-### 2. Setup Environment Variables
-Create a `.env` file in each microservice directory with the following variables:
+1. **Clone the Repository**
+    ```bash
+    git clone <repo-url>
+    cd event-booking-system
+    ```
 
-#### User Service (`.env`)
-```
-DATABASE_URL=postgresql://user:password@localhost/userdb
-SECRET_KEY=your_secret_key
-```
+2. **Set Up Environment Variables**
+    Create a `.env` file in each microservice directory. Example:
 
-#### Notification Service (`.env`)
-```
-MONGO_URI=mongodb://localhost:27017/notifications
-RABBITMQ_URL=amqp://guest:guest@localhost:5672/
-```
+    **User Service `.env`**
+    ```
+    DATABASE_URL=postgresql://user:password@localhost/userdb
+    SECRET_KEY=your_secret_key
+    ```
 
-### 3. Run Services
-#### Start PostgreSQL & MongoDB
-Ensure PostgreSQL and MongoDB are running before starting the services.
+    **Notification Service `.env`**
+    ```
+    MONGO_URI=mongodb://localhost:27017/notifications
+    ```
 
-#### Start RabbitMQ
+3. **Run Services Individually (Local Dev)**
 
-#### Run User Service
-```sh
-cd user-service
-pip install -r requirements.txt
-uvicorn main:app --reload
-```
+    - **PostgreSQL and MongoDB**: Ensure both databases are installed and running locally.
 
-#### Run Event Service
-```sh
-cd event-service
-npm install
-node server.js
-```
+    - **User Service**:
+      ```bash
+      cd user-service
+      pip install -r requirements.txt
+      uvicorn main:app --reload --port 8000
+      ```
 
-#### Run Booking Service
-```sh
-cd booking-service
-pip install -r requirements.txt
-python create_db.py
-python run.py
-```
+    - **Event Service**:
+      ```bash
+      cd new-event-service
+      npm install
+      node server.js
+      ```
 
-#### Run Notification Service
-```sh
-cd notification-service
-npm install
-node server.js
-```
+    - **Booking Service**:
+      ```bash
+      cd booking-service
+      pip install -r requirements.txt
+      python create_db.py
+      flask run --host=0.0.0.0 --port=5001
+      ```
+
+    - **Notification Service**:
+      ```bash
+      cd notification-service
+      npm install
+      node server.js
+      ```
+
+4. **Docker & Kubernetes**
+
+    - **Docker Compose (for local development)**:
+      ```bash
+      docker-compose up --build
+      ```
+
+    - **Kubernetes (Production-like deployment)**:
+      Apply the manifests:
+      ```bash
+      kubectl apply -f kubernetes/namespace.yaml
+      kubectl apply -f kubernetes/configmap.yaml
+      kubectl apply -f kubernetes/secret.yaml
+      kubectl apply -f kubernetes/volumes.yaml
+      kubectl apply -f kubernetes/mongo-deployment.yaml
+      kubectl apply -f kubernetes/postgres-deployment.yaml
+      kubectl apply -f kubernetes/user-service-deployment.yaml
+      kubectl apply -f kubernetes/booking-service-deployment.yaml
+      kubectl apply -f kubernetes/event-service-deployment.yaml
+      kubectl apply -f kubernetes/notification-service-deployment.yaml
+      kubectl apply -f kubernetes/services.yaml
+      ```
+      ### Kubernetes Commands (Verification & Port Forwarding)
+      To verify that your pods and services are running correctly in the Kubernetes namespace:
+
+      ```bash
+      kubectl get pods -n microservices-namespace
+      kubectl get services -n microservices-namespace
+      kubectl describe ingress microservices-ingress -n microservices-namespace
+      ```
+      To port-forward the user service and access it locally on port 8000:
+      
+      ```bash
+      kubectl port-forward svc/user-service 8000:8000 -n microservices-namespace
+      ```
+
 
 ## Git Workflow
-```sh
-git checkout -b feature-branch
-# Make changes
-git add .
-git commit -m "Added new feature"
-git push origin feature-branch
-```
 
+1. Create a new branch for your feature:
+    ```bash
+    git checkout -b feature-branch
+    ```
 
-## License
-This project is licensed under the MIT License.
-
-
+2. Make changes and commit:
+    ```bash
+    git add .
+    git commit -m "Added new feature"
+    git push origin feature-branch
+    ```
