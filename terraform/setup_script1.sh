@@ -3,8 +3,8 @@
 # Update system packages
 yum update -y
 
-# Install git and unzip
-yum install -y git unzip
+# Install git
+yum install -y git
 
 # Install Docker
 yum install -y docker
@@ -20,12 +20,12 @@ chmod +x /usr/local/bin/docker-compose
 mkdir -p /home/ec2-user/microservices
 cd /home/ec2-user/microservices
 
-# Create directory structure following the project layout
-mkdir -p user-service/Routes user-service/Static user-service/Templates user-service/Logs
-mkdir -p booking-service/app booking-service/migrations
-mkdir -p notification-service
-mkdir -p new-event-service/config new-event-service/controllers new-event-service/models new-event-service/routes
-mkdir -p kubernetes
+# Clone your repository (replace with your actual repository URL)
+git clone https://github.com/AyaanKhan1576/Event-Booking-Microservices-DevOps .
+
+# Alternative: Copy docker-compose and microservices from S3 (set up separately)
+# aws s3 cp s3://your-bucket/microservices.zip .
+# unzip microservices.zip
 
 # Create a placeholder docker-compose.yml file
 # (You'll need to upload your actual files through SCP or other means)
@@ -156,71 +156,11 @@ cat > init.sql << 'EOL'
 CREATE DATABASE IF NOT EXISTS bookingdb;
 EOL
 
-# Create sample Dockerfiles if they don't exist
-cat > user-service/Dockerfile << 'EOL'
-FROM python:3.9-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-COPY . .
-CMD ["python", "main.py"]
-EOL
-
-cat > booking-service/Dockerfile << 'EOL'
-FROM python:3.9-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-COPY . .
-CMD ["python", "run.py"]
-EOL
-
-cat > notification-service/Dockerfile << 'EOL'
-FROM node:14-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-CMD ["node", "server.js"]
-EOL
-
-cat > new-event-service/Dockerfile << 'EOL'
-FROM node:14-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-CMD ["node", "server.js"]
-EOL
-
-# Create a simple README with instructions
-cat > README.md << 'EOL'
-# Microservices Deployment
-
-This directory contains the Docker setup for the microservices application.
-
-## Directory Structure
-- user-service: Python Flask user management service
-- booking-service: Python Flask booking service
-- notification-service: Node.js notification service
-- new-event-service: Node.js event management service
-- kubernetes: Kubernetes deployment files
-
-## Starting the Services
-```
-docker-compose up -d
-```
-
-## Accessing the Services
-- User Service: http://localhost:8000
-- Booking Service: http://localhost:5001
-- Event Service: http://localhost:5000
-- Notification Service: http://localhost:5003
-- RabbitMQ Management: http://localhost:15672 (guest/guest)
-EOL
+# Create empty directories for services
+mkdir -p user-service booking-service notification-service new-event-service
 
 # Fix permissions
 chown -R ec2-user:ec2-user /home/ec2-user/microservices
 
+# Note: You'll need to upload your actual service code
 echo "System setup complete. Please upload your microservice code before running docker-compose up."
-echo "Upload your code using: scp -i your-key.pem -r /local/path/to/project/* ec2-user@instance-ip:/home/ec2-user/microservices/"
