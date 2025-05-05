@@ -23,6 +23,7 @@ services:
   booking-service:
     build:
       context: ./booking-service
+      dockerfile: Dockerfile
     ports:
       - "5001:5001"
     environment:

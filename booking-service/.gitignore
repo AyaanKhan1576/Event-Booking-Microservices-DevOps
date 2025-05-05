@@ -4,7 +4,7 @@ __pycache__/
 *.pyo
 
 # Flask-specific files
-.env        # Environment variables for sensitive data
+        # Environment variables for sensitive data
 instance/   # Instance folder for Flask app configurations
 
 # Database migrations folder (Flask-Migrate)

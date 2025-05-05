@@ -4,13 +4,29 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 4.16"
     }
+    tls = {
+      source  = "hashicorp/tls"
+      version = "~> 4.0"
+    }
   }
 
   required_version = ">= 1.0.0"
 }
 
 provider "aws" {
-  region = "us-east-1" # US East (N. Virginia) region - has good free tier support
+  region = "us-east-1"
+}
+
+# Generate an SSH key pair
+resource "tls_private_key" "ssh_key" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
+# Register the public key in AWS
+resource "aws_key_pair" "microservices_key" {
+  key_name   = "microservices-key"
+  public_key = tls_private_key.ssh_key.public_key_openssh
 }
 
 # Create a VPC
@@ -24,7 +40,7 @@ resource "aws_vpc" "microservices_vpc" {
   }
 }
 
-# Create an internet gateway
+# Create an Internet Gateway
 resource "aws_internet_gateway" "microservices_igw" {
   vpc_id = aws_vpc.microservices_vpc.id
 
@@ -45,7 +61,7 @@ resource "aws_subnet" "microservices_subnet" {
   }
 }
 
-# Create a route table
+# Create a route table & route
 resource "aws_route_table" "microservices_rt" {
   vpc_id = aws_vpc.microservices_vpc.id
 
@@ -65,13 +81,13 @@ resource "aws_route_table_association" "microservices_rta" {
   route_table_id = aws_route_table.microservices_rt.id
 }
 
-# Create a security group for the EC2 instance
+# Security Group for microservices
 resource "aws_security_group" "microservices_sg" {
   name        = "microservices-sg"
   description = "Allow incoming traffic for microservices"
   vpc_id      = aws_vpc.microservices_vpc.id
 
-  # SSH access
+  # SSH
   ingress {
     from_port   = 22
     to_port     = 22
@@ -79,7 +95,7 @@ resource "aws_security_group" "microservices_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # HTTP access
+  # HTTP
   ingress {
     from_port   = 80
     to_port     = 80
@@ -127,7 +143,7 @@ resource "aws_security_group" "microservices_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # All outgoing traffic
+  # All outgoing
   egress {
     from_port   = 0
     to_port     = 0
@@ -140,46 +156,53 @@ resource "aws_security_group" "microservices_sg" {
   }
 }
 
-# Create an EC2 instance (t2.micro - free tier eligible)
+# Launch EC2 instance
 resource "aws_instance" "microservices_instance" {
-  ami                    = "ami-0261755bbcb8c4a84" # Amazon Linux 2023 AMI - update as needed
-  instance_type          = "t2.micro"
-  subnet_id              = aws_subnet.microservices_subnet.id
-  vpc_security_group_ids = [aws_security_group.microservices_sg.id]
-  key_name               = var.key_pair_name
+  ami                         = "ami-0261755bbcb8c4a84" # Amazon Linux 2023
+  instance_type               = "t2.micro"
+  subnet_id                   = aws_subnet.microservices_subnet.id
+  vpc_security_group_ids      = [aws_security_group.microservices_sg.id]
+  key_name                    = aws_key_pair.microservices_key.key_name
+  associate_public_ip_address = true
+  user_data                   = file("${path.module}/setup_script.sh")
 
-  user_data = file("${path.module}/setup_script.sh")
+  root_block_device {
+    volume_size = 8
+    volume_type = "gp2"
+  }
 
   tags = {
     Name = "microservices-instance"
   }
-
-  root_block_device {
-    volume_size = 8 # GB - free tier eligible
-    volume_type = "gp2"
-  }
 }
 
-# Output the public IP of the EC2 instance
+# Output the private key for SSH
+output "private_key_pem" {
+  description = "Private key (PEM format) to SSH into the EC2 instance. Save this as microservices-key.pem"
+  value       = tls_private_key.ssh_key.private_key_pem
+  sensitive   = true
+}
+
+# Output the public IP
 output "instance_public_ip" {
-  description = "Public IP address of the EC2 instance"
+  description = "Public IP of the EC2 instance"
   value       = aws_instance.microservices_instance.public_ip
 }
 
-# Output connection instructions
+# Output SSH connection info
 output "connection_info" {
-  description = "Instructions to connect to the instance"
-  value       = "Connect to your instance using: ssh -i ${var.key_pair_name}.pem ec2-user@${aws_instance.microservices_instance.public_ip}"
+  description = "Command to SSH into the instance"
+  value       = "ssh -i microservices-key.pem ec2-user@${aws_instance.microservices_instance.public_ip}"
 }
 
 # Output service URLs
 output "service_urls" {
-  description = "URLs to access your microservices"
+  description = "Access URLs for your services"
   value = {
-    user_service        = "http://${aws_instance.microservices_instance.public_ip}:8000"
-    booking_service     = "http://${aws_instance.microservices_instance.public_ip}:5001"
-    event_service       = "http://${aws_instance.microservices_instance.public_ip}:5000"
+    user_service         = "http://${aws_instance.microservices_instance.public_ip}:8000"
+    booking_service      = "http://${aws_instance.microservices_instance.public_ip}:5001"
+    event_service        = "http://${aws_instance.microservices_instance.public_ip}:5000"
     notification_service = "http://${aws_instance.microservices_instance.public_ip}:5003"
-    rabbitmq_management = "http://${aws_instance.microservices_instance.public_ip}:15672"
+    rabbitmq_management  = "http://${aws_instance.microservices_instance.public_ip}:15672"
   }
 }
